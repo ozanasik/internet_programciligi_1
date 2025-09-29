@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+    <script src="lib/script.js"></script>
+  </head>
+
+  <body>
+   <table>
+
+     <tr>
+     <th bgcolor="blue">Ad</th>
+     <th bgcolor="pink">Soyad</th>
+     <th bgcolor="purple">Cinsiyet</th>
+     <th bgcolor="grey">Email</th>
+     </tr>
+
+     <tr>
+       <td bgcolor="green">Ozan</td>
+       <td bgcolor="yellow">Aşık</td>
+       <td bgcolor="white yellow">Erkek</td>
+       <td bgcolor="black blue">24301071044@kayseri.edu.tr
+     </tr>
+
+
+   </table>
+  </body>
+</html>
