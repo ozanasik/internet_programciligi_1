@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+    <script src="lib/script.js"></script>
+  </head>
+
+  <body>
+    <h1> HATAsız'YLI TAVUKÇU </h1>
+    <img width="300" height="200" alt="Resim Yok"
+src="https://i.ytimg.com/vi/NTas0gOgxqc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDa1d1FkUnnj-aNnz0hvmUOh7gRDQ">
+<form>
+  <br> <label>Ad:</label>
+  <input type ="text"/> <br>
+  <label>Soyad:</label>
+  <input type ="text"/> <br>
+  <label>Şifre:</label>
+  <input type ="password"/> <br>
+  <label>Mail:</label>
+  <input type ="text"/> <br>
+  <button>Gonder</button> <br> <br>
+  <table>
+  <tr>
+    <th>Dürümler</th>
+    <th>İçecekler</th>
+    <th>Kurye</th>
+  </tr>
+  <tr>
+    <td>Martı DÜRÜM 60 TL<br>
+     Ekonomik DÜRÜM 100 TL<br>
+     Klasik DÜRÜM 130 TL<br>
+     Ultra DÜRÜM 250 TL<br> 
+     </td>
+    <td>Coca Cola 250 ML 60 TL<br>
+    RedBull 300 ML 100 TL<br>
+    Küçük Ayran 45 TL<br>
+    Büyük Ayran 60 TL<br>
+    </td>
+<td>Ücretsiz Kurye 60-75 Dakika<br>
+    Ucuz Kurye 30 TL 35-45 Dakika<br>
+    Klasik Kurye 40 TL 20-25 Dakika<br>
+    Pahalı Kurye 60 TL 5-10 Dakika<br>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
