@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+    <script src="lib/script.js"></script>
+    <style>
+      h1{
+        color: cray;
+        background-color: yellow;
+      }
+      div{
+      border: 10px solid gray;
+      margin-top: 180px;
+      margin-left: 150px;
+      margin-right: 240px;
+      margin-bottom: 150px;
+      padding-left:100px;
+      padding-left:100px;
+      padding-top:500px;
+      padding: 100px;
+      background-color: purple;
+      }
+      table,td,th{
+        border: 3px solid;
+      }
+      table{
+        border collapse : collapse;
+      }
+      </div>
+      form{
+        border: 10px solid red;
+        padding-top: 50px
+      }
+      input[type="text"]:focus{
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+        background-color: green;
+        border: none;
+        border-bottom:2px solid red;
+      }
+      input[type="password"]:focus{
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+        background-color: red;
+      }
+       input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+        background-color: blue;
+        border-bottom:2px solid red;
+      }
+      </style>
+    <table>
+    <tr>
+     <th bgcolor="blue">Ad</th>
+     <th bgcolor="pink">Soyad</th>
+     <th bgcolor="purple">Cinsiyet</th>
+     <th bgcolor="grey">Email</th>
+     </tr>
+  </tr>
+    <tr>
+     <td bgcolor="green">Ozan</td>
+       <td bgcolor="red">Aşık</td>
+       <td bgcolor="orange">Erkek</td>
+       <td bgcolor="red orange">24301071044@kayseri.edu.tr
+    <tr>
+     <td bgcolor="purple">Ozan</td>
+       <td bgcolor="blue">Aşık</td>
+       <td bgcolor="pink">Erkek</td>
+       <td bgcolor="red">24301071044@kayseri.edu.tr
+   <tr>
+    <td bgcolor="red">Ozan</td>
+       <td bgcolor="yellow">Aşık</td>
+       <td bgcolor="white yellow">Erkek</td>
+       <td bgcolor="black red">24301071044@kayseri.edu.tr
+   <tr>
+    <td bgcolor="cray">Ozan</td>
+       <td bgcolor="orange">Aşık</td>
+       <td bgcolor="yellow">Erkek</td>
+       <td bgcolor="blue">24301071044@kayseri.edu.tr
+       </tr>
+  </table>
+  <form>
+    <br> <label>Ad:</label>
+  <input type ="text"/> <br>
+  <label>Soyad:</label>
+  <input type ="text"/> <br>
+  <label>Şifre:</label>
+  <input type ="password"/> <br>
+  <label>Mail:</label>
+  <input type ="text"/> <br>
+  <input type ="submit"/> <br>
+  </head>
+  <body>
+    <div>
+   <h1>OZAN AŞIK</h1>
+   </div>
+  </body>
+</html>
