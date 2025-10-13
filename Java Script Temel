@@ -1,0 +1,65 @@
+console.log("Hello World")
+let maas1=8000;
+let maas2=9000;
+let zam=0.4
+console.log(maas1 + (maas1 * zam));
+console.log(maas2 + (maas2 * zam));
+var urunAdi = "iphone 17"
+var urunFiyat = "50000"
+console.log(typeof urunAdi)
+console.log(Number(urunFiyat))
+console.log(typeof parseInt(urunFiyat))
+var sayi1 = "74"
+var sayi2 = "23"
+console.log(Number(sayi1)+parseInt(sayi2))
+let sayi3 = 53;
+let sayi4 = 12;
+console.log(sayi3.toString()+sayi4.toString())
+let isim = 'Ozan'
+let soyisim = 'Asik'
+console.log(isim + ' ' + soyisim)
+let sinavnotu1 = 80;
+let basarinotu = (sinavnotu1 > 50)
+console.log(basarinotu)
+let yas;
+console.log(typeof yas)
+if (yas != undefined)
+{
+    
+}
+yas = '';
+let ogrAdi ="Ozan"
+let ogrSoyadi = "Asik"
+let ogrDogumTarihi = 2006
+let not1=70,not2=50,not3=80;
+let ortalama = ((not1+not2+not3)/3)
+let basarilimi = ortalama > 50
+let suankiYil = new Date().getFullYear()
+let ogrYasi = suankiYil -ogrDogumTarihi
+console.log(ogrYasi)
+let nott1 = 50;
+let nott2 = 49;
+let nott3 = 48;
+if (nott1 > nott2 && nott1 > nott3) {
+    console.log(nott1);
+} else if (nott2 > nott3 && nott2 > nott1) {
+    console.log(nott2);
+} else {
+    console.log(nott3);
+}
+
+let sayi9 = 90;
+let sayi8 = 10;
+let islem = '+';
+
+if (islem === '+') {
+  console.log(sayi9 + sayi8);
+} else if (islem === '-') {
+  console.log(sayi9 - sayi8);
+} else if (islem === '*') {
+  console.log(sayi9 * sayi8);
+} else if (islem === '/') {
+  console.log(sayi9 / sayi8);
+} else {
+  console.log('Geçersiz işlem!');
+}
