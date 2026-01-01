@@ -1,0 +1,18 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card img {
+  height: 200px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
