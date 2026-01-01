@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // SATIN AL
   document.getElementById("buyBtn").addEventListener("click", () => {
-    message.innerText = "Siparişiniz alındı, iyi günler dileriz 😊";
+    message.innerText = "Siparişiniz alındı 🎉. Bizi tercih ettiğiniz için minnettarız 😊.";
     message.classList.remove("d-none");
     clearCart();
   });
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // BAĞIŞ YAP
   document.getElementById("donateBtn").addEventListener("click", () => {
     message.innerText =
-      "Bağışınız için teşekkür ederiz 🙏 Bilgisayarlar okullara ulaştırılacaktır.";
+      "Bağışınız için teşekkür ederiz 🎁. Bilgisayarlar ihtiyacı olan okullara ulaştırılacaktır 🎓 .";
     message.classList.remove("d-none");
     clearCart();
   });
