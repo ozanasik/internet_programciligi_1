@@ -1,81 +1,165 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || []; 
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []; 
 
-  let cart = [];
-  const cartCount = document.getElementById("cartCount");
-  const buySection = document.getElementById("buySection");
-  const message = document.getElementById("message");
-  const cartList = document.getElementById("cartList");
+    const cartCount = document.getElementById("cartCount");
+    const cartList = document.getElementById("cartList");
+    const totalPriceEl = document.getElementById("totalPrice");
+    const emptyCartMsg = document.getElementById("emptyCartMsg");
+    const searchInput = document.getElementById("searchInput");
+    
+    // Verileri yükle
+    updateCartDisplay();
+    loadTasks();
 
-  // SEPETE EKLE
-  document.querySelectorAll(".add-cart").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const productName = btn.parentElement.querySelector("h6").innerText;
-      cart.push(productName);
-      updateCart();
-    });
-  });
+    // 1. SEPETE EKLEME
+    document.querySelectorAll(".add-cart").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const name = this.getAttribute("data-name");
+            const price = parseInt(this.getAttribute("data-price"));
 
-  // SEPETİ GÜNCELLE
-  function updateCart() {
-    cartCount.innerText = cart.length;
-    cartList.innerHTML = "";
-
-    cart.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.className = "list-group-item d-flex justify-content-between align-items-center";
-      li.innerHTML = `
-        ${item}
-        <button class="btn btn-sm btn-danger">Sil</button>
-      `;
-
-      // SİL BUTONU
-      li.querySelector("button").addEventListener("click", () => {
-        cart.splice(index, 1);
-        updateCart();
-      });
-
-      cartList.appendChild(li);
+            cart.push({ name: name, price: price });
+            saveCart();
+            updateCartDisplay();
+            showToast("Ürün sepete eklendi! 🚀");
+        });
     });
 
-    if (cart.length > 0) {
-      buySection.classList.remove("d-none");
-    } else {
-      buySection.classList.add("d-none");
+    // 2. SEPETİ GÜNCELLEME
+    function updateCartDisplay() {
+        cartCount.innerText = cart.length;
+        cartList.innerHTML = "";
+        let total = 0;
+
+        if(cart.length === 0) {
+            emptyCartMsg.classList.remove("d-none");
+        } else {
+            emptyCartMsg.classList.add("d-none");
+        }
+
+        cart.forEach((item, index) => {
+            total += item.price;
+            const li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center";
+            li.innerHTML = `
+                <div>
+                    <span class="fw-bold">${item.name}</span>
+                    <br><small class="text-muted">${formatMoney(item.price)}</small>
+                </div>
+                <button class="btn btn-sm btn-outline-danger delete-item" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            cartList.appendChild(li);
+        });
+
+        totalPriceEl.innerText = formatMoney(total);
+
+        document.querySelectorAll(".delete-item").forEach(btn => {
+            btn.addEventListener("click", function() {
+                const index = this.getAttribute("data-index");
+                cart.splice(index, 1);
+                saveCart();
+                updateCartDisplay();
+            });
+        });
     }
-  }
 
-  // SATIN AL
-  document.getElementById("buyBtn").addEventListener("click", () => {
-    message.innerText = "Siparişiniz alındı 🎉. Bizi tercih ettiğiniz için minnettarız 😊.";
-    message.classList.remove("d-none");
-    clearCart();
-  });
+    // 3. SATIN AL BUTONU
+    document.getElementById("buyBtn").addEventListener("click", () => {
+        if(cart.length === 0) return alert("Sepetiniz boş!");
+        
+        alert(`Toplam ${totalPriceEl.innerText} ₺ 💰 tutarındaki siparişiniz alındı 🎉! 😎 Bizi tercih ettiğiniz için teşekkürler💻.`);
+        cart = [];
+        saveCart();
+        updateCartDisplay();
+        
+        // Modalı kapat (Bootstrap 5)
+        const modalEl = document.getElementById('cartModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        modal.hide();
+    });
 
-  // BAĞIŞ YAP
-  document.getElementById("donateBtn").addEventListener("click", () => {
-    message.innerText =
-      "Bağışınız için teşekkür ederiz 🎁. Bilgisayarlar ihtiyacı olan okullara ulaştırılacaktır 🎓 .";
-    message.classList.remove("d-none");
-    clearCart();
-  });
+    // 4. BAĞIŞ YAP BUTONU (Düzeltildi)
+    document.getElementById("donateBtn").addEventListener("click", () => {
+        if(cart.length === 0) return alert("Sepetiniz boş, bağışlanacak ürün yok!");
 
-  function clearCart() {
-    cart = [];
-    updateCart();
-  }
+        alert("Bağışınız için teşekkür ederiz 🎁. Bilgisayarlar ihtiyacı olan okullara ulaştırılacaktır 🎓.");
+        cart = [];
+        saveCart();
+        updateCartDisplay();
+        
+        // Modalı kapat
+        const modalEl = document.getElementById('cartModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        modal.hide();
+    });
 
-  // YAPILACAKLAR / NOTLAR
-  document.getElementById("taskAdd").addEventListener("click", () => {
-    const input = document.getElementById("taskInput");
-    if (!input.value) return;
+    // 5. ARAMA (SEARCH)
+    searchInput.addEventListener("keyup", (e) => {
+        const term = e.target.value.toLowerCase();
+        const cards = document.querySelectorAll(".product-card");
 
-    const li = document.createElement("li");
-    li.className = "list-group-item d-flex justify-content-between";
-    li.innerHTML = `${input.value} <button class="btn btn-sm btn-danger">Sil</button>`;
+        cards.forEach(card => {
+            const productName = card.querySelector(".card-title").innerText.toLowerCase();
+            if(productName.includes(term)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
 
-    li.querySelector("button").onclick = () => li.remove();
-    document.getElementById("taskList").appendChild(li);
-    input.value = "";
-  });
+    // 6. ALINACAKLAR LİSTESİ
+    document.getElementById("taskAdd").addEventListener("click", addTask);
+    
+    function addTask() {
+        const input = document.getElementById("taskInput");
+        if (!input.value) return;
 
+        tasks.push(input.value);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        loadTasks();
+        input.value = "";
+    }
+
+    function loadTasks() {
+        const list = document.getElementById("taskList");
+        list.innerHTML = "";
+        
+        tasks.forEach((task, index) => {
+            const li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center mt-2 border rounded";
+            li.innerHTML = `
+                ${task} 
+                <button class="btn btn-sm btn-danger delete-task" onclick="removeTask(${index})">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>`;
+            list.appendChild(li);
+        });
+    }
+
+    window.removeTask = function(index) {
+        tasks.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        loadTasks();
+    };
+
+    // YARDIMCI FONKSİYONLAR
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function formatMoney(amount) {
+        return amount.toLocaleString('tr-TR');
+    }
+
+    function showToast(message) {
+        const toastEl = document.getElementById('liveToast');
+        const toastBody = toastEl.querySelector('.toast-body');
+        toastBody.innerText = message;
+        // Eğer önceki toast açıksa resetle
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
 });
