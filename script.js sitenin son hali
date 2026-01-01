@@ -6,54 +6,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("message");
   const cartList = document.getElementById("cartList");
 
+  // SEPETE EKLE
   document.querySelectorAll(".add-cart").forEach(btn => {
     btn.addEventListener("click", () => {
       const productName = btn.parentElement.querySelector("h6").innerText;
-
       cart.push(productName);
-      cartCount.innerText = cart.length;
-      buySection.classList.remove("d-none");
-
-      renderCart();
+      updateCart();
     });
   });
 
-  function renderCart() {
+  // SEPETİ GÜNCELLE
+  function updateCart() {
+    cartCount.innerText = cart.length;
     cartList.innerHTML = "";
-    cart.forEach(item => {
+
+    cart.forEach((item, index) => {
       const li = document.createElement("li");
-      li.className = "list-group-item";
-      li.innerText = item;
+      li.className = "list-group-item d-flex justify-content-between align-items-center";
+      li.innerHTML = `
+        ${item}
+        <button class="btn btn-sm btn-danger">Sil</button>
+      `;
+
+      // SİL BUTONU
+      li.querySelector("button").addEventListener("click", () => {
+        cart.splice(index, 1);
+        updateCart();
+      });
+
       cartList.appendChild(li);
     });
+
+    if (cart.length > 0) {
+      buySection.classList.remove("d-none");
+    } else {
+      buySection.classList.add("d-none");
+    }
   }
 
+  // SATIN AL
   document.getElementById("buyBtn").addEventListener("click", () => {
-    message.innerText = "Siparişiniz alındı. Bizi tercih ettiğiniz için teşekkür ederiz ve iyi günler dileriz 😊";
+    message.innerText = "Siparişiniz alındı, iyi günler dileriz 😊";
     message.classList.remove("d-none");
-
-    cart = [];
-    cartCount.innerText = 0;
-    cartList.innerHTML = "";
-    buySection.classList.add("d-none");
+    clearCart();
   });
 
+  // BAĞIŞ YAP
   document.getElementById("donateBtn").addEventListener("click", () => {
-  message.innerText =
-    "Bağışınız için teşekkür ederiz. Bilgisayarlar en hızlı şekilde ihtiyacı olan okullara ulaştırılacaktır.🎁";
-  message.classList.remove("d-none");
+    message.innerText =
+      "Bağışınız için teşekkür ederiz 🙏 Bilgisayarlar okullara ulaştırılacaktır.";
+    message.classList.remove("d-none");
+    clearCart();
+  });
 
-  cart = [];
-  cartCount.innerText = 0;
-  cartList.innerHTML = "";
-  buySection.classList.add("d-none");
-});
+  function clearCart() {
+    cart = [];
+    updateCart();
+  }
 
-
-  // Yapılacaklar / Notlar
+  // YAPILACAKLAR / NOTLAR
   document.getElementById("taskAdd").addEventListener("click", () => {
     const input = document.getElementById("taskInput");
-    if (input.value === "") return;
+    if (!input.value) return;
 
     const li = document.createElement("li");
     li.className = "list-group-item d-flex justify-content-between";
