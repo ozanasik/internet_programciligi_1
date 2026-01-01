@@ -1,160 +1,223 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Ozan Donanım</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Ozan Donanım </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <span class="navbar-brand fw-bold">💻 OZAN DONANIM</span>
-    <div class="text-white">
-      Sepet: <span id="cartCount">0</span>
-      <button class="btn btn-sm btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#cartModal">
-        Sepeti Gör
-      </button>
-    </div>
+    <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-laptop-code text-primary"></i> OZAN DONANIM
+    </a>
+    
+    <button class="btn btn-outline-light position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <i class="fa-solid fa-cart-shopping"></i> Sepet
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+    </button>
   </div>
 </nav>
 
-
-<div class="container my-4 text-center">
-  <h2>Bilgisayarlar Ve Laptoplarımız</h2>
+<div class="bg-primary text-white text-center py-5 mb-4 hero-section">
+    <h1>Hayalindeki Bilgisayarı Bul</h1>
+    <p>En yeni donanımlar, en uygun fiyatlarla.</p>
+    <div class="d-flex justify-content-center mt-3">
+        <input type="text" id="searchInput" class="form-control w-50" placeholder="Ürün ara... (Örn: Ofis, Laptop)">
+    </div>
 </div>
 
 <div class="container">
-  <div class="row g-4">
+  <div class="row g-4" id="productList">
 
-    <!-- ÜRÜNLER -->
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://cdn.dsmcdn.com/ty629/product/media/images/20221207/16/229703215/641662875/1/1_org_zoom.jpg">
-        <div class="card-body">
-          <h6>Ucuz Oyun Bilgisayarı 10000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+      <div class="card h-100 text-center shadow-sm">
+        <img src="https://cdn.dsmcdn.com/ty629/product/media/images/20221207/16/229703215/641662875/1/1_org_zoom.jpg" class="card-img-top">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Ucuz Oyun Bilgisayarı</h5>
+          <div class="mt-auto">
+              <h4 class="text-primary fw-bold">10.000 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Ucuz Oyun Bilgisayarı" data-price="10000">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/300/300/productimage/784952210/784952210_0_MC/ba0e3f4fc0c3467fa93291cd4e81e8df.jpg">
-        <div class="card-body">
-          <h6>Orta Oyun Bilgisayarı 25000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+      <div class="card h-100 text-center shadow-sm">
+        <img src="https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/300/300/productimage/784952210/784952210_0_MC/ba0e3f4fc0c3467fa93291cd4e81e8df.jpg" class="card-img-top">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Orta Oyun Bilgisayarı</h5>
+          <div class="mt-auto">
+            <h4 class="text-primary fw-bold">25.000 ₺</h4>
+            <button class="btn btn-dark w-100 add-cart" data-name="Orta Oyun Bilgisayarı" data-price="25000">
+                <i class="fa-solid fa-plus"></i> Sepete Ekle
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://img-itopya.mncdn.com/cdn/1000/kirmizi-mini-itx-kasa-996-d76bd4.jpg">
-        <div class="card-body">
-          <h6>Pahalı Oyun Bilgisayarı 80000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+      <div class="card h-100 text-center shadow-sm">
+        <img src="https://img-itopya.mncdn.com/cdn/1000/kirmizi-mini-itx-kasa-996-d76bd4.jpg" class="card-img-top">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Pahalı Oyun Bilgisayarı</h5>
+          <div class="mt-auto">
+            <h4 class="text-primary fw-bold">80.000 ₺</h4>
+            <button class="btn btn-dark w-100 add-cart" data-name="Pahalı Oyun Bilgisayarı" data-price="80000">
+                <i class="fa-solid fa-plus"></i> Sepete Ekle
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://forum.donanimhaber.com/store/f4/f3/48/f4f348e97bc62cb63f301b0cec1ae791.jpeg">
-        <div class="card-body">
-          <h6>Ucuz Ofis Bilgisayarı 4500 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://forum.donanimhaber.com/store/f4/f3/48/f4f348e97bc62cb63f301b0cec1ae791.jpeg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Ucuz Ofis Bilgisayarı</h5>
+            <div class="mt-auto">
+              <h4 class="text-primary fw-bold">4.500 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Ucuz Ofis Bilgisayarı" data-price="4500">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDxfrh2-9mzpVjlkeAiviLGbz96iZ3MH4lQ&s">
-        <div class="card-body">
-          <h6>Orta Ofis Bilgisayarı 15000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDxfrh2-9mzpVjlkeAiviLGbz96iZ3MH4lQ&s" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Orta Ofis Bilgisayarı</h5>
+            <div class="mt-auto">
+              <h4 class="text-primary fw-bold">15.000 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Orta Ofis Bilgisayarı" data-price="15000">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://www.coraxalpha.com/img/products/phanteks-enthoo-pro2-server-kapali-panel-bilgisayar-kasa-coraxalpha-07_13.07.2023_51a571c.jpg">
-        <div class="card-body">
-          <h6>Pahalı Ofis Bilgisayarı 70000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://www.coraxalpha.com/img/products/phanteks-enthoo-pro2-server-kapali-panel-bilgisayar-kasa-coraxalpha-07_13.07.2023_51a571c.jpg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Pahalı Ofis Bilgisayarı</h5>
+            <div class="mt-auto">
+              <h4 class="text-primary fw-bold">70.000 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Pahalı Ofis Bilgisayarı" data-price="70000">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://cdn.akakce.com/casper/casper-nirvana-cku-1000-4k05v-s-4-gb-320-gb-15-6-notebook-z.jpg">
-        <div class="card-body">
-          <h6>Ucuz Laptop 9000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://cdn.akakce.com/casper/casper-nirvana-cku-1000-4k05v-s-4-gb-320-gb-15-6-notebook-z.jpg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Ucuz Laptop</h5>
+            <div class="mt-auto">
+              <h4 class="text-primary fw-bold">9.000 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Ucuz Laptop" data-price="9000">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://cdn.akakce.com/z/hp/hp-victus-15-fa1082nt-b03c7ea-i5-12500h-16-gb-512-gb-ssd-rtx4060-15-6-full-hd-gaming-laptop.jpg">
-        <div class="card-body">
-          <h6>Orta Laptop 45000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://cdn.akakce.com/z/hp/hp-victus-15-fa1082nt-b03c7ea-i5-12500h-16-gb-512-gb-ssd-rtx4060-15-6-full-hd-gaming-laptop.jpg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Orta Laptop</h5>
+            <div class="mt-auto">
+              <h4 class="text-primary fw-bold">45.000 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Orta Laptop" data-price="45000">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card h-100 text-center">
-        <img src="https://productimages.hepsiburada.net/s/777/222-222/110000926010030.jpg">
-        <div class="card-body">
-          <h6>Pahalı Laptop 100000 ₺</h6>
-          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+    <div class="col-md-4 product-card">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://productimages.hepsiburada.net/s/777/222-222/110000926010030.jpg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Pahalı Laptop</h5>
+            <div class="mt-auto">
+              <h4 class="text-primary fw-bold">100.000 ₺</h4>
+              <button class="btn btn-dark w-100 add-cart" data-name="Pahalı Laptop" data-price="100000">
+                  <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
-
+      
   </div>
 </div>
 
-<div class="container text-center my-4 d-none" id="buySection">
-  <button class="btn btn-success btn-lg me-2" id="buyBtn">Satın Al</button>
-  <button class="btn btn-warning btn-lg" id="donateBtn">Bağış Yap</button>
-</div>
-
-<div class="container text-center">
-  <div id="message" class="alert alert-success d-none"></div>
-</div>
-
-<!-- DAHA UYGUN İSİM -->
-<div class="container my-5">
-  <h4>📝 Alınacaklar Listesi</h4>
+<div class="container my-5 p-4 bg-white rounded shadow-sm">
+  <h4><i class="fa-solid fa-clipboard-list text-warning"></i> Alınacaklar Listesi</h4>
   <div class="input-group mb-3">
-    <input type="text" id="taskInput" class="form-control">
-    <button class="btn btn-dark" id="taskAdd">Ekle</button>
+    <input type="text" id="taskInput" class="form-control" placeholder="Örn: Yeni mouse, klavye...">
+    <button class="btn btn-warning" id="taskAdd">Ekle</button>
   </div>
   <ul class="list-group" id="taskList"></ul>
 </div>
 
-<!-- SEPET MODAL -->
 <div class="modal fade" id="cartModal" tabindex="-1">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-dark text-white">
         <h5 class="modal-title">🛒 Sepetiniz</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
+        
+        <div id="emptyCartMsg" class="text-center py-4">
+            <i class="fa-solid fa-basket-shopping fa-3x text-muted mb-3"></i>
+            <p>Sepetinizde henüz ürün yok.</p>
+        </div>
+
         <ul class="list-group" id="cartList"></ul>
+        
+        <div class="d-flex justify-content-end mt-3 border-top pt-2">
+            <h4>Toplam: <span id="totalPrice" class="text-success">0</span> ₺</h4>
+        </div>
+
       </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" id="buyBtn">Satın Al</button>
+        <button class="btn btn-outline-dark" id="donateBtn">Bağış Yap</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      <strong class="me-auto">Ozan Donanım</strong>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      Ürün sepete eklendi!
     </div>
   </div>
 </div>
