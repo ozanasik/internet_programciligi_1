@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Ozan Donanım</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <span class="navbar-brand fw-bold">💻 OZAN DONANIM</span>
+    <div class="text-white">
+      Sepet: <span id="cartCount">0</span>
+      <button class="btn btn-sm btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#cartModal">
+        Sepeti Gör
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container my-4 text-center">
+  <h2>Bilgisayarlar Ve Laptoplarımız</h2>
+</div>
+
+<div class="container">
+  <div class="row g-4">
+
+    <!-- ÜRÜNLER -->
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://cdn.dsmcdn.com/ty629/product/media/images/20221207/16/229703215/641662875/1/1_org_zoom.jpg">
+        <div class="card-body">
+          <h6>Ucuz Oyun Bilgisayarı</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/300/300/productimage/784952210/784952210_0_MC/ba0e3f4fc0c3467fa93291cd4e81e8df.jpg">
+        <div class="card-body">
+          <h6>Orta Oyun Bilgisayarı</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://img-itopya.mncdn.com/cdn/1000/kirmizi-mini-itx-kasa-996-d76bd4.jpg">
+        <div class="card-body">
+          <h6>Pahalı Oyun Bilgisayarı</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://forum.donanimhaber.com/store/f4/f3/48/f4f348e97bc62cb63f301b0cec1ae791.jpeg">
+        <div class="card-body">
+          <h6>Ucuz Ofis Bilgisayarı</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDxfrh2-9mzpVjlkeAiviLGbz96iZ3MH4lQ&s">
+        <div class="card-body">
+          <h6>Orta Ofis Bilgisayarı</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://www.coraxalpha.com/img/products/phanteks-enthoo-pro2-server-kapali-panel-bilgisayar-kasa-coraxalpha-07_13.07.2023_51a571c.jpg">
+        <div class="card-body">
+          <h6>Pahalı Ofis Bilgisayarı</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://cdn.akakce.com/casper/casper-nirvana-cku-1000-4k05v-s-4-gb-320-gb-15-6-notebook-z.jpg">
+        <div class="card-body">
+          <h6>Ucuz Laptop</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://cdn.akakce.com/z/hp/hp-victus-15-fa1082nt-b03c7ea-i5-12500h-16-gb-512-gb-ssd-rtx4060-15-6-full-hd-gaming-laptop.jpg">
+        <div class="card-body">
+          <h6>Orta Laptop</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 text-center">
+        <img src="https://productimages.hepsiburada.net/s/777/222-222/110000926010030.jpg">
+        <div class="card-body">
+          <h6>Pahalı Laptop</h6>
+          <button class="btn btn-primary w-100 add-cart">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container text-center my-4 d-none" id="buySection">
+  <button class="btn btn-success btn-lg me-2" id="buyBtn">Satın Al</button>
+  <button class="btn btn-warning btn-lg" id="donateBtn">Bağış Yap</button>
+</div>
+
+<div class="container text-center">
+  <div id="message" class="alert alert-success d-none"></div>
+</div>
+
+<!-- DAHA UYGUN İSİM -->
+<div class="container my-5">
+  <h4>📝 Alınacaklar Listesi</h4>
+  <div class="input-group mb-3">
+    <input type="text" id="taskInput" class="form-control">
+    <button class="btn btn-dark" id="taskAdd">Ekle</button>
+  </div>
+  <ul class="list-group" id="taskList"></ul>
+</div>
+
+<!-- SEPET MODAL -->
+<div class="modal fade" id="cartModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">🛒 Sepetiniz</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group" id="cartList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
